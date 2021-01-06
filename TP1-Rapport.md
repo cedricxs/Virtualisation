@@ -1,4 +1,5 @@
 # TP Virtualisation Container
+## Xingshuo CHA Andi WANG INFO5
 # 1 Mise en place
 Nous utilisons le Macbook comme le système hôte. Utilisons le VirtualBox et créer une machine virtuelle linux embarquée dans VirtualBox.
 La machine virtuelle  Linux est Ubuntu 20.04.1 LTS.
@@ -48,54 +49,54 @@ On a déjà créer le conteneur buster01 à partir l'image Ubuntu/18.04.
 ### 2.7.2
 - Les résultats des commandes `date` et `cat /proc/cpuinfo`:
 
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/datecontainer.png "date conteneur")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/datecontainer.png "date conteneur")
 On peur vois que la date est correct et les cpuinfos sont des informations des cpus hôst.
 
 - Et les résultats des commandes `ls /dev` `free -h` et  `df -h`:
 
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/devcontainer.png "dev conteneur")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/devcontainer.png "dev conteneur")
 On peut voir que la taille du mémoire est 1 GB et la taille du file-system est plus de 3 GB. Il peut-être pouvoir changer la taille du mémoire et la taille du file-system dans la configuration du lxc.
 
 - Et les resultats des commande `ip link ls`  `ip route ls`:
 
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/ipcontainer.png "ip conteneur")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/ipcontainer.png "ip conteneur")
 
  Et en même temps on peut voir que la `ip route ls` du hôst (VM Ubuntu) a  `10.191.129.0/24 dev lxdbr01 proto kernel scope link src 10.191.129.1`. Donc la hôst VM est comme la gateway du conteneur.
 
 - Enfin la commande `systemctl status` s'affiche les services marchent dans le conteneur.
 
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/systemctl.png "systemctl conteneur")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/systemctl.png "systemctl conteneur")
 ### 2.7.3
 Entrer dans le conteneur et installer le ssh(ssh et sshd).
 
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/installssh.png "install ssh")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/installssh.png "install ssh")
 
  Revient au hôst (Ubuntu VM) et exécuter `ssh -l root 10.191.129.245` (ipv4 du conteneur).
  
  Il toujours demande la mot de passe et toujours `permission denied`.
 #### Solution:
 Entrer dans le conteneur et changer la configuration du sshd.
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/viconfigurationsshd.png "vi configuration sshd")
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/configurationsshd.png "configuration sshd")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/viconfigurationsshd.png "vi configuration sshd")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/configurationsshd.png "configuration sshd")
 
  Changer la ligne à `PermitRootLogin yes`.
  Et puis relancer le sshd.
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/restartsshd.png "relancer sshd")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/restartsshd.png "relancer sshd")
  Réussir à se connecter le conteneur en ssh.
- ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/connectssh.png "conncecter avec ssh")
+  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/connectssh.png "conncecter avec ssh")
 ### 2.7.4
 - Créer le conteneur nginx01 en utilisant l'image ubuntu/18.04.
-![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/creercontainernginx.png "lancer conteneur nginx")
+ ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/creercontainernginx.png "lancer conteneur nginx")
 
 - Installer ssh dans le conteneur et se connecter le conteneur en ssh.
-![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/connectsshnginx.png "conncecter avec ssh")
+ ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/connectsshnginx.png "conncecter avec ssh")
 
 - Installer nginx dans le conteneur: `apt install nginx`
 
 - Voir l'état du serveur nginx: `systemctl status nginx`
-![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/systemctlnginx.png "systemctl nginx")
+ ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/systemctlnginx.png "systemctl nginx")
 
 - Tester le web serveur dans le hôst: `curl 10.191.129.98`
-![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/curlnginx.png "curl nginx")
+ ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/curlnginx.png "curl nginx")
 
 
