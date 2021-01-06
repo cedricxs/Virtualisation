@@ -34,6 +34,7 @@ Pour savoir l'état d'un conteneur, on utilise la commande `lxc ls -c colonnes n
 ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/statusrun.png "etat conteneur")
 ## 2.5 Arrêt / redémarrage
 On peut changer l'etat d'un conteneur en utilisant la commande `lxc start nom-conteneur` ou `lxc stop nom-conteneur` qui font démarrer ou arrêter un conteneur.
+
 ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/stopcontainer.png "arreter conteneur")
 ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/startcontainer.png "demarrer conteneur")
 ## 2.6 Création de processus dans un container
