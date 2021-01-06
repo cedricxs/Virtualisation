@@ -56,13 +56,13 @@ On peur vois que la date est correct et les cpuinfos sont des informations des c
  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/devcontainer.png "dev conteneur")
 On peut voir que la taille du mémoire est 1 GB et la taille du file-system est plus de 3 GB. Il peut-être pouvoir changer la taille du mémoire et la taille du file-system dans la configuration du lxc.
 
-- Et les resultats des command `ip link ls`  `ip route ls`:
+- Et les resultats des commande `ip link ls`  `ip route ls`:
 
  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/ipcontainer.png "ip conteneur")
 
  Et en même temps on peut voir que la `ip route ls` du hôst (VM Ubuntu) a  `10.191.129.0/24 dev lxdbr01 proto kernel scope link src 10.191.129.1`. Donc la hôst VM est comme la gateway du conteneur.
 
-- Enfin la command `systemctl status` s'affiche les services marchent dans le conteneur.
+- Enfin la commande `systemctl status` s'affiche les services marchent dans le conteneur.
 
  ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/systemctl.png "systemctl conteneur")
 ### 2.7.3
