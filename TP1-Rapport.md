@@ -61,7 +61,7 @@ On peut voir que la taille du mémoire est 1 GB et la taille du file-system est 
 
   ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/ipcontainer.png "ip conteneur")
 
- Et en même temps on peut voir que la `ip route ls` du hôst (VM Ubuntu) a  `10.191.129.0/24 dev lxdbr01 proto kernel scope link src 10.191.129.1`. Donc la hôst VM est comme la gateway du conteneur.
+  Et en même temps on peut voir que la `ip route ls` du hôst (VM Ubuntu) a  `10.191.129.0/24 dev lxdbr01 proto kernel scope link src 10.191.129.1`. Donc la hôst VM est comme la gateway du conteneur.
 
 - Enfin la commande `systemctl status` s'affiche les services marchent dans le conteneur.
 
@@ -82,6 +82,7 @@ Entrer dans le conteneur et changer la configuration du sshd.
  Changer la ligne à `PermitRootLogin yes`.
  Et puis relancer le sshd.
   ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/restartsshd.png "relancer sshd")
+  
  Réussir à se connecter le conteneur en ssh.
   ![](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/connectssh.png "conncecter avec ssh")
 ### 2.7.4
