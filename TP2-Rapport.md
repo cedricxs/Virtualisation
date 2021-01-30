@@ -51,7 +51,7 @@ Et puis refaire la commande `qemu-system-x86_64`.
 ![step18](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step18.png)
 ![step19](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step19.png)
 Cet fois il a réussit à installer l'image qcow2.
-Après l'installation l'image du Debian, on revoir la taille du fichier 16g.qcow2.
+Après l'installation de l'image du Debian, on revoir la taille du fichier 16g.qcow2.
 ![step191](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step191.png)
 Maintenant il est de 1.6G, c'est la taille de l'image qu'on a configuré et installé depuis internet.
 
@@ -69,8 +69,14 @@ Cet fois on met l'option `-m 256m` et revoir le résultat de la commande `df -h`
 
 ![step23](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step23.png)
 On voir bien que la taille de mémoire peut être configurer comme on a besoins. Il est donc plus flexible que VirtuelBox.
+
+Pour mettre en place une console sur port série, on changer le contenu du fichier `/etc/default/grub`.
+![step24](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step24.png)
+
+Et puis `update-grub`.
+
+![step25](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step25.png)
 ###1.1.3 Benchmarks
 ####1.1.3.1 Mesures de performances d’entrées-sorties
-![step24](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step24.png)
-![step25](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step25.png)
+Après l'installation du `Bonnie++`, on fait un mesure de performances d’entrées-sorties
 ![step26](https://raw.githubusercontent.com/cedricxs/Virtualisation/main/images/step26.png)
